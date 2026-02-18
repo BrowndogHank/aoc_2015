@@ -31,13 +31,30 @@ println(" ")
 
 function day3_p2_solver(directions)
     moves = Dict('^' => (0,1),
-            'v' => (0,-1),
-            '>' => (1,0),
-            '<' => (-1,0))
+                    'v' => (0,-1),
+                    '>' => (1,0),
+                    '<' => (-1,0))
 
     santa_visited = Set([(0,0)])
     robo_visited = Set([(0,0)])
-    pos = (0,0)
+    santa_pos = (0,0)
+    robo_pos = (0,0)
 
-
+    for (i,c) in enumerate(directions)
+        santa_pos = santa_pos .+ moves[i]
+        robo_pos = robo_pos .+ moves[c]
+        
+        push!(santa_visited, santa_pos)
+        push!(robo_visited, robo_pos)
+        visited = union(santa_visited, robo_visited)
+    end
+    length(visited)
+    
 end
+
+day3_p2_solver("^v")
+
+
+houses_visited = day3_p2_solver(input_data)
+println("ANSWER: $houses_visited")
+println("="^70)
