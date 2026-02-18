@@ -3,6 +3,7 @@ println("Day 3 Part 1")
 println(" ")
 
 input_data = readline("./aoc_2015/day3_input.txt")
+
 function day3_p1_solver(directions)
 
     moves = Dict('^' => (0,1),
@@ -31,9 +32,9 @@ println(" ")
 
 function day3_p2_solver(directions)
     moves = Dict('^' => (0,1),
-                    'v' => (0,-1),
-                    '>' => (1,0),
-                    '<' => (-1,0))
+                'v' => (0,-1),
+                '>' => (1,0),
+                '<' => (-1,0))
 
     santa_visited = Set([(0,0)])
     robo_visited = Set([(0,0)])
