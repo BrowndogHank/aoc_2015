@@ -36,21 +36,20 @@ function day3_p2_solver(directions)
                 '>' => (1,0),
                 '<' => (-1,0))
 
-    santa_visited = Set([(0,0)])
-    robo_visited = Set([(0,0)])
-    visited = Set()
+
+    visited = Set([(0,0)])
     santa_pos = (0,0)
     robo_pos = (0,0)
 
     for (i,c) in enumerate(directions)
         if isodd(i)
             santa_pos = santa_pos .+ moves[c]
-            push!(santa_visited, santa_pos)
+            push!(visited, santa_pos)
         else
             robo_pos = robo_pos .+ moves[c]
-            push!(robo_visited, robo_pos)
+            push!(visited, robo_pos)
         end
-        visited = union(santa_visited, robo_visited)
+        
     end
     length(visited)
 

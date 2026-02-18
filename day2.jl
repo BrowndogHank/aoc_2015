@@ -21,7 +21,7 @@ total_wrapper = solver_day2_p1()
 println("ANSWER: $total_wrapper")
 println("="^70)
 
-println("="^70)
+##
 println("Day 2 Part 2")
 println(" ")
 
@@ -30,7 +30,7 @@ function day2_p2_solver()
 
     ribbon_vec = []
     for c in input
-        dims = parse.(Int,split(c, "x"))
+        dims = sort(parse.(Int,split(c, "x")))
         l, w, h = dims[1], dims[2], dims[3]
         ribbon_l = (l+l+w+w) + l*w*h
         push!(ribbon_vec, ribbon_l)
